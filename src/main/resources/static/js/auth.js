@@ -127,7 +127,7 @@ async function login() {
       alert("Logged in successfully");
       window.location.href = "welcome.html";
 
-    } else if(response.status == 400){
+    } else if(response.status == 401){
 
       alert("Invalid Credentials!");
 

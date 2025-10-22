@@ -96,9 +96,9 @@ public class UserService {
 
 
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+//    public List<User> getAllUsers() {
+//        return userRepository.findAll();
+//    }
 
 
     public List<Order> getOrdersByUserId(Long userId) {

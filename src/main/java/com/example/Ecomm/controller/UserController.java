@@ -52,13 +52,13 @@ public class UserController {
     }
 
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
+//    @GetMapping
+//    public List<User> getAllUsers() {
+//        return userService.getAllUsers();
+//    }
 
 
-    @GetMapping("/{id}/orders")
+    @GetMapping("/{userId}/orders")
     public List<Order> getOrdersByUserId(@PathVariable Long userId) {
         return userService.getOrdersByUserId(userId);
     }
