@@ -1,4 +1,4 @@
-//const BASE_URL = "fetch('http://localhost:8080')" needed when frontend runs separately
+
 async function loadProducts() {
 
   let loggedIn = false;
