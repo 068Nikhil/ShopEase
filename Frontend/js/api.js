@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080"; 
+const BASE_URL = "https://shopease-backend-gh78.onrender.com"; 
 async function loadProducts() {
 
   let loggedIn = false;

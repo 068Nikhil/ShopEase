@@ -1,4 +1,4 @@
-BASE_URL = "http://localhost:8080"; 
+BASE_URL = "https://shopease-backend-gh78.onrender.com"; 
 
 //register
 async function register() {
