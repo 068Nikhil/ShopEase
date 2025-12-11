@@ -11,7 +11,7 @@ async function checkout() {
 
         let currentUserPayment = await getCurrentUser();
 
-        const response = await fetch(BASE_URL + `users/${currentUserPayment.id}`, {
+        const response = await fetch(BASE_URL + `/users/${currentUserPayment.id}`, {
             method: "GET"
         });
 
@@ -75,6 +75,6 @@ async function checkout() {
 
     }  catch(err) {
         console.error(err);
-        alert("error during payment");
+        alert("error during payment", err);
     }
 }
