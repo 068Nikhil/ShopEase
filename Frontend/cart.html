@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Cart</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+    <script src="js/auth.js"></script>
+  
+    <!-- for preventing access to this page before logging in -->
+    <script>
+      async function checkUser() {
+          let user = await getCurrentUser();
+          if (user == null) {
+              window.location.href = "login.html";
+          }
+      }
+      checkUser();
+    </script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="welcome.html">ShopEase</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="welcome.html">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/profile.html">
+                <i class="fas fa-circle-user" style="color :  #ff8533;"></i>
+                <span id="user-title" style="color :  #ff8533;"></span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="cursor: pointer;" onclick="logout()">Logout
+                <i class="fas fa-right-from-bracket"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h2 class="section-title">Your Shopping Cart</h2>
+      <div class="container1"></div>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+        </tbody>
+      </table>
+
+      <h3 class="text-end">Total Amount: ₹<span id="total-amount">0</span></h3>
+      <button id="pay-button" class="btn btn-success float-end mt-3">
+        Proceed to Payment
+      </button>
+    </div>
+
+
+    <!--Script to get Name of User-->
+    <script>
+      async function loadUserTitle() {
+        let currentUserObj = await getCurrentUser();
+        if (currentUserObj) {
+          let name = currentUserObj.name;
+          document.getElementById("user-title").innerHTML = "Hi, " + name;
+        } else {
+          window.location.href = "login.html";
+        }
+      }
+
+      loadUserTitle();
+    </script>
+
+    <!-- JavaScript & Bootstrap -->
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+      updateCartCounter();
+    </script>
+
+  </body>
+</html>
