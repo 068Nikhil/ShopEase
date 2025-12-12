@@ -6,12 +6,16 @@ import com.example.Ecomm.model.User;
 import com.example.Ecomm.repo.OrderRepository;
 import com.example.Ecomm.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
+
+    @Value("${EMAIL_FROM_SENDGRID}")
+    private String senderEmail;
 
     @Autowired
     private JavaMailSender mailSender;
@@ -36,7 +40,9 @@ public class EmailService {
 
         User user = order.getUser();
 
+
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(senderEmail);
         message.setTo(user.getEmail());
         message.setSubject("✅ Payment Successful - ShopEase");
         message.setText("Hi " + user.getName() + ",\n" +
