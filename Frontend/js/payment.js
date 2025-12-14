@@ -36,7 +36,7 @@ async function checkout() {
         const result = await responseCreate.json();
 
         const options = {
-            key: "rzp_test_R8uF60QGa1JgYb",
+            key: "rzp_test_RrTDrr0Zdwxaxe",
             amount: amount * 100,
             currency: "INR",
             name: "ShopEase Shopping",
