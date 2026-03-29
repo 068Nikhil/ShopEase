@@ -30,7 +30,6 @@ public class PaymentController {
     @PostMapping("/update-order")
     public ResponseEntity<String> updateOrderStatus(@RequestParam String orderId, @RequestParam String orderStatus) {
         paymentService.updateOrderStatus(orderId, orderStatus);
-        System.out.println("Email sent Successfully...");
-        return ResponseEntity.ok("Order status updated and Email sent successfully");
+        return ResponseEntity.ok("Order status updated");
     }
 }

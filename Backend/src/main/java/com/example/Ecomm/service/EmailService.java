@@ -28,7 +28,7 @@ public class EmailService {
         StringBuilder itemsBuilder = new StringBuilder();
         for (OrderItem item : order.getOrderItems()) {
             itemsBuilder.append("- ")
-                    .append(item.getProduct().getName())  
+                    .append(item.getProduct().getName())
                     .append(" x ")
                     .append(item.getQuantity())
                     .append(" @ ₹")
@@ -56,5 +56,6 @@ public class EmailService {
                 itemsBuilder.toString());
 
         mailSender.send(message);
+        System.out.println("Email sent Successfully...");
     }
 }
