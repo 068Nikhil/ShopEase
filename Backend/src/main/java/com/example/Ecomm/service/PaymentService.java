@@ -67,6 +67,9 @@ public class PaymentService {
         paymentRepo.save(paymentOrder);
 
         if("SUCCESS".equalsIgnoreCase(orderStatus)) {
+
+
+
             User user = userRepository.findByEmail(paymentOrder.getEmail());
             Cart cart = cartService.findCartByUserId(user.getId());
 
